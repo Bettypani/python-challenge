@@ -50,3 +50,18 @@ with open(csvpath) as csvfile:
     print(f'{candidate}, {vote},{round(vote/total_votes*100,3)}%')
     print('------------------------------')
     print('Winner: ' +f'{max(unique_candidate,key=unique_candidate.get)}')
+
+    #open text file
+    with open('output.txt', 'w') as txtfile:
+        txtfile.write('Election Results\n')
+        txtfile.write('------------------------------\n')
+        txtfile.write('Total Votes: ' + str(total_votes) + '\n')
+        txtfile.write('------------------------------\n')
+        
+        for candidate, vote in unique_candidate.items():
+            percent = round(vote / total_votes * 100, 3)
+            txtfile.write(f'{candidate}, {vote}, {percent}%\n')
+
+        txtfile.write('------------------------------\n')
+        winner = max(unique_candidate, key=unique_candidate.get)
+        txtfile.write('Winner: ' + winner + '\n')
