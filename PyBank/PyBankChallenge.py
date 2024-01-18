@@ -40,7 +40,16 @@ with open(csvpath) as csvfile:
     greateast_increase_date = months[change_from_previous. index(greatest_increase) + 1]
     greatest_decrease = min(change_from_previous)
     greatest_decrease_date = months[change_from_previous. index(greatest_decrease) + 1]
-        
+
+        #open text file
+    with open('output.txt', 'w') as txtfile:
+        txtfile.write('Financial Analysis\n')
+        txtfile.write('------------------------------\n')
+        txtfile.write(f'Total Months: {total_months}\n')
+        txtfile.write(f'Total: ${total_profit}\n')
+        txtfile.write(f'Average Change: {average}\n')
+        txtfile.write(f'Greatest Increase in Profits: {greatest_increase_date}  ${greatest_increase}\n')
+        txtfile.write(f'Greatest Decrease in Profits: {greatest_decrease_date}  ${greatest_decrease}\n') 
 
     
 print('Financial Analysis')
